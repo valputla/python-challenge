@@ -12,6 +12,14 @@ with open(csvpath) as csvfile:
     csv_header = next(csvreader)
     print(f"CSV Header: {csv_header}")
       
+    for row in csvreader:
+        profit_loss_values = row[1]
+        print(profit_loss_values)
+
+        # for x in profit_loss_values:
+        #     total = sum(profit_loss_values)
+        #     print(total)
+
     total_months = sum(1 for row in csvreader)
     print(total_months)
     #86 is the total
@@ -20,21 +28,20 @@ with open(csvpath) as csvfile:
     # total_profit_losses = sum(row[1] for row in csvreader)
     # print(total_profit_losses)
 
-    # sorted_dates = sorted(row[0] for row in csvreader)
-    # print(sorted_dates)
+    # # sorted_dates = sorted(row[0] for row in csvreader)
+    # # print(sorted_dates)
 
-    for row in csvreader:
-        total_profit_losses = 0
-        total_profit_losses = total_profit_losses + row[1]
-        print(total_profit_losses)
+    # for row in csvreader:
+    #     total_profit_losses = 0
+    #     total_profit_losses = total_profit_losses + row[1]
+    #     print(total_profit_losses)
 
 
-    for row in csvreader:
-        total = sum(row[1])
-        print(total)
+    # for row in csvreader:
+    #     total = sum(row[1])
+    #     print(total)
 
-    for row in csvreader:
-        print(row[1])
+    
 
 
 
