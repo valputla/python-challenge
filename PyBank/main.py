@@ -8,6 +8,8 @@ print(csvpath)
 
 profit_loss_column = []
 differences = []
+sum_differences = []
+average_change = []
 
 with open(csvpath) as csvfile:
     # CSV reader specifies delimiter and variable that holds contents
@@ -25,11 +27,24 @@ with open(csvpath) as csvfile:
 # print(total_months)
 # print(total)
 
-
+    sum_differences = 0
     for x in range(85):
         difference = profit_loss_column[x+1] - profit_loss_column[x]
         differences.append(difference)
-print(differences)
+
+        
+        sum_differences += difference
+  
+# print(differences)
+# print(sum_differences)
+
+percent = round((sum_differences) / len(differences), 2)
+average_change.append("$" + str(percent))
+print(average_change)
+print(total_months)
+print(total)
+
+
 
 
 
