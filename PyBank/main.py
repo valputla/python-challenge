@@ -6,6 +6,9 @@ csvpath = os.path.join("Resources", "budget_data.csv")
 
 print(csvpath)
 
+profit_loss_column = []
+differences = []
+
 with open(csvpath) as csvfile:
     # CSV reader specifies delimiter and variable that holds contents
     csvreader = csv.reader(csvfile, delimiter=',')
@@ -18,11 +21,15 @@ with open(csvpath) as csvfile:
     for row in csvreader:
         total_months += 1
         total += int(row[1])
-print(total_months)
-print(total)
+        profit_loss_column.append(int(row[1]))
+# print(total_months)
+# print(total)
 
 
-
+    for x in range(85):
+        difference = profit_loss_column[x+1] - profit_loss_column[x]
+        differences.append(difference)
+print(differences)
 
 
 
