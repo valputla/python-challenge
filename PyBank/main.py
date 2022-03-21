@@ -1,5 +1,6 @@
 import os
 import csv
+from typing import Counter
 
 csvpath = os.path.join("Resources", "budget_data.csv")
 
@@ -11,15 +12,17 @@ with open(csvpath) as csvfile:
     
     csv_header = next(csvreader)
     print(f"CSV Header: {csv_header}")
-      
+
+    total = 0
     for row in csvreader:
-        profit_loss_values = row[1]
-        print(profit_loss_values)
+        total += int(row[1])
+        print(total)
 
         # for x in profit_loss_values:
         #     total = sum(profit_loss_values)
         #     print(total)
 
+    
     total_months = sum(1 for row in csvreader)
     print(total_months)
     #86 is the total
