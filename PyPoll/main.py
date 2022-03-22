@@ -26,7 +26,11 @@ with open(csvpath) as csvfile:
             candidates.append(row[2])
         if row[2] == "Charles Casper Stockham":
             total_votes_CCS += 1
-print(total_votes_CCS)
+        if row[2] == "Diana DeGette":
+            total_votes_DD += 1
+        if row[2] == "Raymon Anthony Doane":
+            total_votes_RAD += 1
+
 
 
 
@@ -35,6 +39,9 @@ print(total_votes_CCS)
 
 #print(total_votes)
 #print(candidates)
+#print(total_votes_CCS)
+print(total_votes_DD)
+print(total_votes_RAD)
 
 
 # print("Election Results")
