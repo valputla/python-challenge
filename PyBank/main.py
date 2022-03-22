@@ -3,11 +3,12 @@ import csv
 
 csvpath = os.path.join("Resources", "budget_data.csv")
 
-print(csvpath)
+#print(csvpath)
 
 profit_loss_column = []
 differences = []
 sum_differences = []
+sum_total_differences = []
 date = []
 
 
@@ -17,7 +18,7 @@ with open(csvpath) as csvfile:
     csvreader = csv.reader(csvfile, delimiter=',')
     
     csv_header = next(csvreader)
-    print(f"CSV Header: {csv_header}")
+    #print(f"CSV Header: {csv_header}")
 
     total_months = 0
     total = 0
@@ -34,6 +35,7 @@ with open(csvpath) as csvfile:
         difference = profit_loss_column[x+1] - profit_loss_column[x]
         differences.append(difference)
         sum_differences += difference
+        sum_total_differences.append(sum_differences)
         
 # print(differences)
 # print(sum_differences)
@@ -44,7 +46,7 @@ percent = round((sum_differences) / len(differences), 2)
 # print(total)
 # print(max(differences))
 # print(min(differences))
-cleaned_csv = zip(date, differences)
+cleaned_csv = zip(date, differences, sum_total_differences)
 
 # Set variable for output file
 output_file = os.path.join("main_final.csv")
@@ -54,7 +56,7 @@ with open(output_file, "w") as datafile:
     writer = csv.writer(datafile)
 
     # Write the header row
-    writer.writerow(["Date", "Differences"])
+    writer.writerow(["Date", "Differences", "Sum of Differences"])
 
     # Write in zipped rows
     writer.writerows(cleaned_csv)
@@ -66,24 +68,43 @@ with open(csvpath2) as csvfile:
     csvreader2 = csv.reader(csvfile, delimiter=',')
     
     csv_header = next(csvreader2)
-    print(f"CSV2 Header: {csv_header}")
+    #print(f"CSV2 Header: {csv_header}")
+
+    max_difference = 1862002
+    min_difference = -1825558
+    for row in csvreader2:
+        date.append(row[0])
+        differences.append(row[1])
+    
+        
+        
+
+
+        
+        #     if row[1] == max_difference:
+        #         print(row[0])
+        #     if row[1] == min_difference:
+        #         print(row[0])       
+            
+#   Financial Analysis
+#   ----------------------------
+#   Total Months: 86
+#   Total: $22564198
+#   Average Change: $-8311.11
+#   Greatest Increase in Profits: Aug-16 ($1862002)
+#   Greatest Decrease in Profits: Feb-14 ($-1825558)
+
+print("Financial Analysis")
+print("--------------------------")
+print(f"Total Months: {total_months}")
+print(f"Total: ${total}")
+print("Average Change: $" + str(percent))
+print(f"Greatest Increase in Profits: ${max_difference}")
+print(f"Greatest Decrease in Profits: ${min_difference}")
 
 
 
-
-#  if row[1] == max(differences):
-#             print(row[0])
-#         if row[1] == min(differences):
-#             print(row[0])
-
-    # for difference in differences:
-    #     # max_difference = 1862002
-    #     # min_difference = -1825558
-    #     # if row[1] == max_difference:
-    #     #     print(row[0])
-    #     # if row[1] == min_difference:
-    #     #     print(row[0])
-    #     print(difference)
+    
    
 
 
@@ -91,17 +112,4 @@ with open(csvpath2) as csvfile:
 
 
 
-# cleaned_csv = zip(date, profit_losses)
-# # Set variable for output file
-# output_file = os.path.join("main_final.csv")
-# #  Open the output file
-# with open(output_file, "w") as datafile:
-#     writer = csv.writer(datafile)
-#     # Write the header row
-#     writer.writerow(["Date", "Profit/Losses"])
-#     # Write in zipped rows
-#     writer.writerows(cleaned_csv)
-
-
-    # total_profit_loss = sum(column2 for row in csvreader)
-    # print(total_profit_loss)
+#
