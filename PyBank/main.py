@@ -8,6 +8,8 @@ print(csvpath)
 profit_loss_column = []
 differences = []
 sum_differences = []
+date = []
+
 
 
 with open(csvpath) as csvfile:
@@ -23,6 +25,7 @@ with open(csvpath) as csvfile:
         total_months += 1
         total += int(row[1])
         profit_loss_column.append(int(row[1]))
+        date.append(row[0])
 # print(total_months)
 # print(total)
 
@@ -31,17 +34,57 @@ with open(csvpath) as csvfile:
         difference = profit_loss_column[x+1] - profit_loss_column[x]
         differences.append(difference)
         sum_differences += difference
-
-  
+        
 # print(differences)
 # print(sum_differences)
 
 percent = round((sum_differences) / len(differences), 2)
-print("$" + str(percent))
-print(total_months)
-print(total)
-print(max(differences))
-print(min(differences))
+# print("$" + str(percent))
+# print(total_months)
+# print(total)
+# print(max(differences))
+# print(min(differences))
+cleaned_csv = zip(date, differences)
+
+# Set variable for output file
+output_file = os.path.join("main_final.csv")
+
+#  Open the output file
+with open(output_file, "w") as datafile:
+    writer = csv.writer(datafile)
+
+    # Write the header row
+    writer.writerow(["Date", "Differences"])
+
+    # Write in zipped rows
+    writer.writerows(cleaned_csv)
+       
+
+csvpath2 = os.path.join("..", "PyBank", "main_final.csv")
+with open(csvpath2) as csvfile:
+    # CSV reader specifies delimiter and variable that holds contents
+    csvreader2 = csv.reader(csvfile, delimiter=',')
+    
+    csv_header = next(csvreader2)
+    print(f"CSV2 Header: {csv_header}")
+
+
+
+
+#  if row[1] == max(differences):
+#             print(row[0])
+#         if row[1] == min(differences):
+#             print(row[0])
+
+    # for difference in differences:
+    #     # max_difference = 1862002
+    #     # min_difference = -1825558
+    #     # if row[1] == max_difference:
+    #     #     print(row[0])
+    #     # if row[1] == min_difference:
+    #     #     print(row[0])
+    #     print(difference)
+   
 
 
 
