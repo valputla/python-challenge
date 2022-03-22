@@ -70,37 +70,26 @@ with open(csvpath2) as csvfile:
     csv_header = next(csvreader2)
     #print(f"CSV2 Header: {csv_header}")
 
-    max_difference = 1862002
-    min_difference = -1825558
+    max_difference = ["Aug-16", 1862002]
+    min_difference = ["Feb-14", -1825558]
     for row in csvreader2:
         date.append(row[0])
         differences.append(row[1])
-    
         
-        
-
-
-        
-        #     if row[1] == max_difference:
-        #         print(row[0])
-        #     if row[1] == min_difference:
-        #         print(row[0])       
+            # if row[1] == max_difference:
+            #     print(row[0])
+            # if row[1] == min_difference:
+            #     print(row[0])       
             
-#   Financial Analysis
-#   ----------------------------
-#   Total Months: 86
-#   Total: $22564198
-#   Average Change: $-8311.11
-#   Greatest Increase in Profits: Aug-16 ($1862002)
-#   Greatest Decrease in Profits: Feb-14 ($-1825558)
+#with open write text file instead of printing them here
 
 print("Financial Analysis")
 print("--------------------------")
 print(f"Total Months: {total_months}")
 print(f"Total: ${total}")
 print("Average Change: $" + str(percent))
-print(f"Greatest Increase in Profits: ${max_difference}")
-print(f"Greatest Decrease in Profits: ${min_difference}")
+print(f"Greatest Increase in Profits: {max_difference}")
+print(f"Greatest Decrease in Profits: {min_difference}")
 
 
 
@@ -112,4 +101,3 @@ print(f"Greatest Decrease in Profits: ${min_difference}")
 
 
 
-#
