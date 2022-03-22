@@ -12,7 +12,7 @@ with open(csvpath) as csvfile:
     csvreader = csv.reader(csvfile, delimiter=',')
     
     csv_header = next(csvreader)
-    print(f"CSV Header: {csv_header}")
+    #print(f"CSV Header: {csv_header}")
 
     total_votes = 0
     candidates = []
@@ -24,7 +24,7 @@ with open(csvpath) as csvfile:
         total_votes += 1
         if row[2] not in candidates:
             candidates.append(row[2])
-            
+
         if row[2] == "Charles Casper Stockham":
             total_votes_CCS += 1
             
@@ -43,12 +43,12 @@ with open(csvpath) as csvfile:
 candidate_votes = [total_votes_CCS, total_votes_DD, total_votes_RAD]
 #print(max(candidate_votes))
 
-if max(candidate_votes) == 85213:
-    print("Charles Casper Stockham")
-elif max(candidate_votes) == 272892:
-    print("Diana DeGette")
-else:
-    print("Raymon Anthony Doane")
+# if max(candidate_votes) == 85213:
+#     print("Charles Casper Stockham")
+# elif max(candidate_votes) == 272892:
+#     print("Diana DeGette")
+# else:
+#     print("Raymon Anthony Doane")
 
 
 
@@ -65,8 +65,13 @@ else:
 # print(percent_RAD)
 
 
-# print("Election Results")
-# print("-----------------------------")
-# print(f"Total Votes: {total_votes}")
-# print("-----------------------------")
-# print(f"Charles Casper Stockham: ")
+print("Election Results")
+print("-----------------------------")
+print(f"Total Votes: {total_votes}")
+print("-----------------------------")
+print(f"Charles Casper Stockham: {percent_CCS}% ({total_votes_CCS})")
+print(f"Diana DeGette: {percent_DD}% ({total_votes_DD})")
+print(f"Raymon Anthony Doane: {percent_RAD}% ({total_votes_RAD})")
+print("-----------------------------")
+print(f"Winner: Diana DeGette")
+print("-----------------------------")
