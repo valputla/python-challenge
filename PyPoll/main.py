@@ -30,7 +30,10 @@ with open(csvpath) as csvfile:
             total_votes_DD += 1
         if row[2] == "Raymon Anthony Doane":
             total_votes_RAD += 1
-
+    
+    percent_CCS = round(total_votes_CCS/total_votes * 100, 3)
+    percent_DD = round(total_votes_DD/total_votes * 100, 3)
+    percent_RAD = round(total_votes_RAD/total_votes * 100, 3)
 
 
 
@@ -40,8 +43,12 @@ with open(csvpath) as csvfile:
 #print(total_votes)
 #print(candidates)
 #print(total_votes_CCS)
-print(total_votes_DD)
-print(total_votes_RAD)
+# print(total_votes_DD)
+# print(total_votes_RAD)
+# print(percent_CCS)
+print(percent_CCS)
+print(percent_DD)
+print(percent_RAD)
 
 
 # print("Election Results")
