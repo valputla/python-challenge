@@ -1,6 +1,5 @@
 import os
 import csv
-from typing import Counter
 
 csvpath = os.path.join("Resources", "budget_data.csv")
 
@@ -31,9 +30,8 @@ with open(csvpath) as csvfile:
     for x in range(85):
         difference = profit_loss_column[x+1] - profit_loss_column[x]
         differences.append(difference)
-
-        
         sum_differences += difference
+
   
 # print(differences)
 # print(sum_differences)
@@ -42,6 +40,8 @@ percent = round((sum_differences) / len(differences), 2)
 print("$" + str(percent))
 print(total_months)
 print(total)
+print(max(differences))
+print(min(differences))
 
 
 
