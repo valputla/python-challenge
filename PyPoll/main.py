@@ -75,6 +75,34 @@ candidate_votes = [total_votes_CCS, total_votes_DD, total_votes_RAD]
 # print(percent_RAD)
 
 
+# Set variable for output file
+output_file_final= os.path.join("main_final.txt")
+
+#  Open the output file
+with open(output_file_final, "w") as f:
+    f.write("Election Results")
+    f.write("\n")
+    f.write("----------------------")
+    f.write("\n")
+    f.write(f"Total Votes: {total_votes}")
+    f.write("\n")
+    f.write("----------------------")
+    f.write("\n")
+    f.write(f"Charles Casper Stockham: {percent_CCS}% ({total_votes_CCS})")
+    f.write("\n")
+    f.write(f"Diana DeGette: {percent_DD}% ({total_votes_DD})")
+    f.write("\n")
+    f.write(f"Raymon Anthony Doane: {percent_RAD}% ({total_votes_RAD})")
+    f.write("\n")
+    f.write("----------------------")
+    f.write("\n")
+    f.write(f"Winner: Diana DeGette")
+    f.write("\n")
+    f.write("----------------------")
+
+    
+    
+
 #Print final output. 
 print("Election Results")
 print("-----------------------------")
