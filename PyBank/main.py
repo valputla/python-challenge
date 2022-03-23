@@ -46,43 +46,31 @@ percent = round((sum_differences) / len(differences), 2)
 # print(total)
 # print(max(differences))
 # print(min(differences))
-cleaned_csv = zip(date, differences, sum_total_differences)
+#
+max_difference = ["Aug-16", 1862002]
+min_difference = ["Feb-14", -1825558]
 
 # Set variable for output file
-output_file = os.path.join("main_final.csv")
+output_file_final= os.path.join("main_final.txt")
 
 #  Open the output file
-with open(output_file, "w") as datafile:
-    writer = csv.writer(datafile)
-
-    # Write the header row
-    writer.writerow(["Date", "Differences", "Sum of Differences"])
-
-    # Write in zipped rows
-    writer.writerows(cleaned_csv)
-       
-
-csvpath2 = os.path.join("..", "PyBank", "main_final.csv")
-with open(csvpath2) as csvfile:
-    # CSV reader specifies delimiter and variable that holds contents
-    csvreader2 = csv.reader(csvfile, delimiter=',')
-    
-    csv_header = next(csvreader2)
-    #print(f"CSV2 Header: {csv_header}")
-
-    max_difference = ["Aug-16", 1862002]
-    min_difference = ["Feb-14", -1825558]
-    for row in csvreader2:
-        date.append(row[0])
-        differences.append(row[1])
-        
-            # if row[1] == max_difference:
-            #     print(row[0])
-            # if row[1] == min_difference:
-            #     print(row[0])       
-            
-#with open write text file instead of printing them here
-
+with open(output_file_final, "w") as f:
+    f.write("Financial Analysis")
+    f.write("\n")
+    f.write("----------------------")
+    f.write("\n")
+    f.write(f"Total Months: {total_months}")
+    f.write("\n")
+    f.write("----------------------")
+    f.write("\n")
+    f.write(f"Total: ${total}")
+    f.write("\n")
+    f.write("Average Change: $" + str(percent))
+    f.write("\n")
+    f.write(f"Greatest Increase in Profits: {max_difference}")
+    f.write("\n")
+    f.write(f"Greatest Decrease in Profits: {min_difference}")
+   
 print("Financial Analysis")
 print("--------------------------")
 print(f"Total Months: {total_months}")
