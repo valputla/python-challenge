@@ -81,8 +81,6 @@ with open(output_file_final, "w") as f:
     f.write("\n")
     f.write(f"Total Months: {total_months}")
     f.write("\n")
-    f.write("----------------------")
-    f.write("\n")
     f.write(f"Total: ${total}")
     f.write("\n")
     f.write("Average Change: $" + str(avg_change))
